@@ -6,6 +6,60 @@
 
 # if we're using os to find filepath instead of hard coding, then make sure to import eeded modules
 
+
+# Step 1: import the correct functions
+
+import os
+import statistics
+import pandas
+import json
+
+# Step 2: set up a UDF to ensure that you can use pandas to process csv file form data file
+
+def calculate_avg_from_csv (x):
+    dataframe = pandas.read_csv(x)
+    avg_grade = dataframe["final_grade"].mean()
+    return avg_grade
+
+
+# Step 3: we need to ensure that associated terminal, github on windows, terminal on mac will run the .csv file
+
+if __name__ == "__main__":
+    gradebook_filepath = os.path.join(os.path.dirname(__file__), "..", "data", "gradebook_2019.csv")
+    print(gradebook_filepath)
+    avg = calculate_avg_from_csv(gradebook_filepath)
+    print(avg)
+
+
+
+
+# if __name__ == "__main__": # Required script to run the JSON or CSV from terminal
+#     print("PARSING SOME EXAMPLE GRADEBOOK FILES HERE...")
+#     gradebook_filepath = os.path.join(os.path.dirname(__file__), "..", "data", "gradebook_2019.csv")
+#     #gradebook_filepath = "C:/Users/Mike/Documents/GitHub/omniparser-starter-py/data/gradebook_2019.csv"
+#     #gradebook_filepath = "data/gradebook_2019.csv"
+#     print(gradebook_filepath)
+#     avg = calculate_average_grade_from_csv(gradebook_filepath)
+#     print(avg)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+instructions_recap = [
+
+'''
 import os # needed for os functions
 import pandas # needed for pandas based crunching
 import json # needed to process json (This is for later)
@@ -45,3 +99,5 @@ if __name__== "__main__": # <---- this 'if' statement is required to process fil
 #     print(gradebook_filepath)
 #     avg = calculate_average_grade_from_csv(gradebook_filepath)
 #     print(avg)
+
+''' ]
